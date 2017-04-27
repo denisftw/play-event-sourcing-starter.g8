@@ -1,6 +1,6 @@
 # Practical Event Sourcing with Scala
 
-This is the activator template of sample event sourcing application that we will be building over the course of the [Practical Event Sourcing with Scala](https://leanpub.com/practical-event-sourcing-with-scala) ebook I'm currently writing.
+This is the giter8 template of sample event sourcing application that we will be building over the course of the [Practical Event Sourcing with Scala](https://leanpub.com/practical-event-sourcing-with-scala) ebook.
 
 ## Description
 
@@ -21,7 +21,7 @@ All styles are included so that the application looks decent enough from the ver
 
 ## Getting started
 
-Since this template is based on Activator, I assume that you already have JDK8 installed.
+Since this template is supposed to be used with sbt, I assume that you already have JDK8 and sbt 0.13.13+ installed.
   In addition, you will also need to have PostgreSQL 9.5 installed to run the app. If you're using an up-to-date version of Ubuntu, this is easy to do:
 
   ```
@@ -77,15 +77,15 @@ Since this template is based on Activator, I assume that you already have JDK8 i
   $ npm run watch
   ```
 
-  Finally, use another terminal window to start Activator in debug mode:
+  Finally, use another terminal window to start sbt in debug mode:
 
   ```
-  $ ./activator -jvm-debug 9999
+  $ ./sbt -jvm-debug 9999
   ```
 
-  Note that Webpack is started in the monitor mode and recompile frontend assets after you change them. Once you start the Play application from Activator using the `run` command, it will also start monitoring backend source files for changes.
+  Note that Webpack is started in the monitor mode and recompile frontend assets after you change them. Once you start the Play application from sbt using the `run` command, it will also start monitoring backend source files for changes.
 
 
 ## Versions used
 
-The code uses Play 2.5 and Scala 2.11.8 along with sbt 0.13.11.
+The code uses Play 2.5 and Scala 2.11.8 along with sbt 0.13.15.
