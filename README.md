@@ -40,29 +40,25 @@ Then, create a new database for our authentication mechanism:
 $ sudo -u postgres createdb -O scalauser authdb
 ```
 
-The application also utilizes a frontend workflow based on NodeJS. This means that you'll need to have two NodeJS tools installed - `node` and `npm`. Since NodeJS is in constant development, I recommend you install nvm - the NodeJS version manager. Just go to <a href="https://github.com/creationix/nvm#install-script">their website</a> and follow the instructions. Again, if you're on Ubuntu (or other Unix), everything is easy:
-
-```
-$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-```
+The application also utilizes a frontend workflow based on NodeJS. This means that you'll need to have two NodeJS tools installed - `node` and `npm`. Since NodeJS is in constant development, I recommend you install nvm - the NodeJS version manager. Just go to <a href="https://github.com/creationix/nvm#install-script">their website</a> and follow the instructions. 
 
 After `nvm` is installed, use it to obtain NodeJS itself:
 
 ```
-$ nvm install v5.3.0
+$ nvm install v8.9.4
 ```
 
 Add this to the very end of your `.bashrc` to make sure that NodeJS 5.3.0 is used by default:
 
 ```
-nvm use v5.3.0 > /dev/null
+nvm use v8.9.4 > /dev/null
 ```
 
 Open a new terminal and check that `npm` is available:
 
 ```
 $ npm --version
-3.3.12
+6.3.0
 ```
 
 Finally, go to the project directory and download frontend dependencies by typing the following:
@@ -88,4 +84,4 @@ Note that Webpack is started in the monitor mode and recompile frontend assets a
 
 ## Versions used
 
-The code uses Play 2.5 and Scala 2.11.8 along with sbt 0.13.15.
+The code uses Play 2.7 and Scala 2.12 along with sbt 1.2.
