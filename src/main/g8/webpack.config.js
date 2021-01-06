@@ -1,11 +1,14 @@
-const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   entry: './ui/entry.js',
-  output: {path: path.resolve(__dirname, 'public/compiled'), filename: 'bundle.js'},
+  output: { 
+    publicPath: '',
+    path: path.resolve(__dirname, 'public/compiled'), 
+    filename: 'bundle.js' 
+  },
   module: {
     rules: [
       {
@@ -22,6 +25,12 @@ module.exports = {
           'css-loader',
           'sass-loader'
         ]
+      },
+      { 
+        test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/, 
+        use: {
+          loader: 'url-loader?limit=1'
+        }
       }
     ]
   },
@@ -29,11 +38,8 @@ module.exports = {
     new MiniCssExtractPlugin({ filename: "styles.css" })
   ],
   optimization: {
-    minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true
-      })
-    ]
-  }
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+  },
+  devtool: process.env.NODE_ENV === 'development' ? 'source-map' : false
 };

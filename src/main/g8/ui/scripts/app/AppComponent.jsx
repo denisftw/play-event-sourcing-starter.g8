@@ -20,7 +20,7 @@ class AppComponent {
   };
   renderComponent = () => {
     const reactDiv = document.getElementById('reactDiv');
-    if (!!reactDiv) {
+    if (reactDiv !== null) {
       ReactDOM.render(
         <div className="view-home-composite__react-panel__welcome-text">
           If you can see this message then

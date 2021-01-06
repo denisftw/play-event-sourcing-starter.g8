@@ -1,17 +1,18 @@
 package services
 
 import java.util.UUID
-
 import dao.UserDao
 
-import scala.util.{Failure, Success}
+import scala.concurrent.Future
 
 
 class UserService(userDao: UserDao) {
-  def getUserFullName(userId: UUID): Option[String] = {
-    userDao.findById(userId) match {
-      case Success(maybeUser) => maybeUser.map(_.fullName)
-      case Failure(_) => None
+  import util.ThreadPools.CPU
+  def getUserFullNameMap: Future[Map[UUID, String]] = {
+    userDao.getUsers.map { users =>
+      users.map { user =>
+        user.userId -> user.fullName
+      }.toMap
     }
   }
 }
