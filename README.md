@@ -16,7 +16,6 @@ The frontend sources are separated from the backend and reside in the `ui` direc
 * Babel transpiler for using EcmaScript (arrows, classes, `let`, `const`)
 * React and Redux
 * Axios as the frontend HTTP client
-* Bootstrap SCSS
 
 All styles are included so that the application looks decent enough from the very beginning.
 
