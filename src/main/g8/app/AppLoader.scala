@@ -50,10 +50,10 @@ class AppComponents(context: Context) extends BuiltInComponentsFromContext(conte
 
   applicationLifecycle.addStopHook { () =>
     DBs.closeAll()
-    Future.successful(Unit)
+    Future.successful(())
   }
 
-  val onStart = {
+  val onStart: Unit = {
     DBs.setupAll()
     applicationEvolutions
   }
